@@ -17,4 +17,5 @@ const writeStream = fs.createWriteStream("src/Output.txt", "utf-8"); // returns 
 //   writeStream.write(dataToBeWritten);
 // });
 
+
 readStream.pipe(writeStream);
