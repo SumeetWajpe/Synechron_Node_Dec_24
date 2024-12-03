@@ -4,8 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      function Initialize() {
+        let socket = io.connect();
+        socket.on("msg_from_server", dataFromServer => {
+          console.log(dataFromServer);
+        });
+      }
+    </script>
   </head>
-  <body>
+  <body onload="Initialize()">
     <header>
       <h1>Websocket (Duplex Stream)</h1>
     </header>
