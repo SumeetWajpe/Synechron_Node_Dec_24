@@ -7,6 +7,7 @@ let products = [
   { id: 2, name: "Mobile", price: 50000 },
 ];
 
+// middleware
 app.use(express.json());
 
 app.get("/", (req, res) => {
