@@ -6,11 +6,17 @@
     <title>Document</title>
     <script src="/socket.io/socket.io.js"></script>
     <script>
+      let socket = null;
       function Initialize() {
-        let socket = io.connect();
+        socket = io.connect();
         socket.on("msg_from_server", dataFromServer => {
           console.log(dataFromServer);
         });
+      }
+
+      function SendMessage() {
+        let msgToBeSent = document.getElementById("txtMsg").value;
+        socket.emit("msg_from_client", msgToBeSent);
       }
     </script>
   </head>
@@ -18,5 +24,13 @@
     <header>
       <h1>Websocket (Duplex Stream)</h1>
     </header>
+    <main>
+      <label>
+        Enter Message here :
+        <input type="text" id="txtMsg" />
+
+        <input type="button" value="Send" onclick="SendMessage()" />
+      </label>
+    </main>
   </body>
 </html>
