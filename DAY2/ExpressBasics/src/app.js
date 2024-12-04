@@ -9,13 +9,19 @@ let products = [
 
 // middleware
 app.use(express.json());
+app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.sendFile("Index.html", { root: __dirname });
-});
-app.get("/styles.css", (req, res) => {
-  res.sendFile("styles.css", { root: __dirname });
-});
+// app.get("/", (req, res) => {
+//   res.sendFile("Index.html", { root: __dirname });
+// });
+// app.get("/styles.css", (req, res) => {
+//   res.sendFile("styles.css", { root: __dirname });
+// });
+
+// app.get("/script.js", (req, res) => {
+//   res.sendFile("script.js", { root: __dirname });
+// });
+
 app.get("/products", (req, res) => {
   res.json(products);
 });
