@@ -4,11 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
     />
+
+    <script>
+      function AddNewCourse(e) {
+        e.preventDefault();
+
+        let courseToBeAdded = {};
+        courseToBeAdded.id = document.getElementById("txtCourseId").value;
+        courseToBeAdded.title = document.getElementById("txtCourseTitle").value;
+
+        fetch("http://localhost:3000/newcourse", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(courseToBeAdded),
+        })
+          .then(res => res.json())
+          .then(r => alert(r.msg));
+      }
+    </script>
   </head>
   <body class="container">
     <nav
@@ -34,14 +53,25 @@
               <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="NewCourse.html">New Course</a>
+              <a class="nav-link" href="">New Course</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
     <main>
-      <div class="row" id="listofcourses"></div>
+      <form onsubmit="AddNewCourse(event)">
+        <label>
+          Id :
+          <input type="text" id="txtCourseId" />
+        </label>
+        <label>
+          Title :
+          <input type="text" id="txtCourseTitle" />
+        </label>
+
+        <button class="btn btn-success">Add New Course</button>
+      </form>
     </main>
   </body>
 </html>

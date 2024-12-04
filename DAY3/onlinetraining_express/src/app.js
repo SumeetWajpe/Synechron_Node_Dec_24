@@ -22,6 +22,12 @@ app.get("/coursedetails/:id", (req, res) => {
   res.render("index", { title: "Course details", theCourse });
 });
 
+app.post("/newcourse", (req, res) => {
+  let newCourse = req.body;
+  courses.push(newCourse);
+  return res.json({ msg: `The ${newCourse.title} was added successfully !` });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
