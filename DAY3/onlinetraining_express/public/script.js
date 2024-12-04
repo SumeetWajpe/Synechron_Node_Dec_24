@@ -15,7 +15,7 @@ function CreateCourseItem(course) {
   newCol.setAttribute("class", "col-md-3");
 
   newCol.innerHTML = `<div class="card mt-2">
-  <img src=${course.imageUrl} class="card-img-top" height="200px" alt=${course.title}>
+ <a href="/coursedetails/${course.id}"> <img src=${course.imageUrl} class="card-img-top" height="200px" alt=${course.title}> </a>
   <div class="card-body">
     <h5 class="card-title">${course.title}</h5>
     <p class="card-text">₹. ${course.price}</p>
