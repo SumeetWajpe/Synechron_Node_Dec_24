@@ -1,8 +1,5 @@
-html
-  head
-    title= title
-    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css")
-  body(class="container")
+extends layout 
+block content
     h1 Course Details for  #{theCourse.id}
     div(class="row")
         div(class="col-md-9")
@@ -11,7 +8,6 @@ html
             h2= theCourse.title
             p ₹. #{theCourse.price} 
             p= theCourse.trainer
-
             p= theCourse.description
 
     

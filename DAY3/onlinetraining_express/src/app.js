@@ -13,9 +13,6 @@ app.use(express.static("public"));
 app.set("view engine", "pug");
 app.set("views", "./src/views");
 
-// /
-// /coursedetails/:id
-
 // routers
 app.use("/", coursesRouter);
 

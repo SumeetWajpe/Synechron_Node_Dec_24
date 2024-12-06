@@ -10,7 +10,7 @@ router.get("/coursedetails/:id", (req, res) => {
   let courseId = req.params.id;
   let theCourse = courses.find(c => c.id == courseId);
   // coursedetails - html -> send to the client
-  res.render("index", { title: "Course details", theCourse });
+  res.render("coursedetails", { title: "Course details", theCourse });
 });
 
 router.post("/newcourse", (req, res) => {
